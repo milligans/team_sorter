@@ -14,8 +14,8 @@ class Questionnaire():
 
 
     def build_questions(self):
-        self.quest_items = QUEST_DICTIONARY.keys()
-        self.answers = QUEST_DICTIONARY.values()
+        self.quest_items = list(QUEST_DICTIONARY.keys())
+        self.answers = list(QUEST_DICTIONARY.values())
 
 
 
