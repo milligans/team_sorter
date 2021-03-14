@@ -1,5 +1,7 @@
 QUEST_DICTIONARY = {"What is your prior level of programming?": ("High", "Medium", "Low"),
-                    "What is your undergraduate degree type?": ("BSc", "BEng", "BA", "other")}
+                    "What is your undergraduate degree type?": ("BSc", "BEng", "BA", "other"),
+                    "Which language is your preferred one?": ("Welsh", "English")
+                    }
 
 
 
@@ -20,3 +22,4 @@ class Questionnaire():
 
 
 
+    # def build_confirmation(self, array):
