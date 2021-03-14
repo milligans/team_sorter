@@ -19,15 +19,15 @@ for item in range(len(student_questions)):
         n += 1
     item_response = input("Please input the number for your answer: ")
     # need to find a way to enforce an answer/error correct wrong answers
-    student_responses.append((item, int(item_response)))
+    student_responses.append((item, int(item_response)-1))
     print(item_response)
 
 
-# print(student_responses)
+print(student_responses)
 # print(student_answers)
 # print(student_responses[0][1])
 
 for item in range(len(student_questions)):
     print("The question was ", student_questions[item])
     response_num=student_responses[item][1]
-    print("Your answer was ", student_answers[item][response_num-1])
+    print("Your answer was ", student_answers[item][response_num])
