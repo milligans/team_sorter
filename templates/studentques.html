@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+    <p>Please select your answer from the list below</p>
+    {% for question in student_questions %}
+        <b>{{ question }}</b>
+    {% endfor %}
+
+
+
+{% endblock content %}

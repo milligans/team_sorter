@@ -27,7 +27,7 @@ while still_answering:
         print("The question was ", student_questions[item])
         response_num=student_responses[item][1]
         print("Your answer was ", student_answers[item][response_num])
-    answer_again = input("Are you happy with these answers? Please enter 'N' to re-enter the answers or 'Y' to continue and submit the answers. \t")
+    answer_again = input("Are you happy with these answers? Please enter 'N' to re-enter the answers or 'Y' to continue and submit the answers.\t")
     if answer_again.lower()=="y":
         print("Answers submitted")
         still_answering=False
