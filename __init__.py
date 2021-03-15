@@ -26,7 +26,8 @@ def students():
     student_skills.build_questions()
     student_questions = student_skills.quest_items
     student_answers = student_skills.answers
-    return render_template("studentques.html", student_questions=student_questions, student_answers=student_answers, student_responses=student_responses)
+    number_questions=len(student_questions)
+    return render_template("studentques.html", student_questions=student_questions, student_answers=student_answers, student_responses=student_responses, number_questions= number_questions)
 
 # @app.route('/results')
 # def search_results(search):

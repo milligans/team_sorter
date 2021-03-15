@@ -4,10 +4,29 @@
 
 
     <p>Please select your answer from the list below</p>
-    {% for question in student_questions %}
-        <b>{{ question }}</b>
+    {% for item in range(number_questions) %}
+
+
+        <b>{{ student_questions[item] }}</b>
+        <label for "answers">Choose an answer</label>
+        {% for part in range(number_questions) %}
+        {% for answer in student_answers %}
+
+        <form action="">
+
+            <input type= "radio" name="quiz" value={{ part -1 }}>{{ student_answers[item][part-1] }}</br>
+
+
+
+          {% endfor %}
+
+        </form>
+
     {% endfor %}
-
-
+        <input type="text" name="extra info">
+        <br>
+    {% endfor %}
+     <input type="submit" values="Submit">
+<!-- information on how to use counters in jinja loops https://stackoverflow.com/questions/7537439/how-to-increment-a-variable-on-a-for-loop-in-jinja-template-->
 
 {% endblock content %}
