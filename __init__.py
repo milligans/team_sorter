@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-
+import csv
 import requests
 from flask_wtf import *
 from questionnaire import Questionnaire
@@ -19,7 +19,7 @@ def index():
 
 
 
-@app.route('/students', methods = ['GET', 'POST'])
+@app.route('/students', methods=['GET', 'POST'] )
 def students():
     student_responses = []
     student_skills = Questionnaire()
@@ -29,19 +29,17 @@ def students():
     number_questions=len(student_questions)
     return render_template("studentques.html", student_questions=student_questions, student_answers=student_answers, student_responses=student_responses, number_questions= number_questions)
 
-# @app.route('/results')
-# def search_results(search):
-#     results = []
-#     search_string = search.data['search']
-#     if search.data['search'] == '':
-#         qry = db_session.query(Album)
-#         results = qry.all()
-#     if not results:
-#         flash('No results found!')
-#         return redirect('/')
-#     else:
-#         # display results
-#         return render_template('results.html', results=results)
+# https://stackoverflow.com/questions/27379486/retrieving-html-form-data-and-storing-in-csv-with-flask-python?answertab=votes#tab-top
+@app.route('/results', methods=['GET', 'POST'])
+def results():
+    if request.method=='POST':
+        question_choice=request.form['question_choice']
+        extrainfo=request.form['extrainfo']
+        with open('results.csv', 'a') as inFile:
+            fieldnames=['question_choice','extrainfo']
+            writer= csv.DictWriter(inFile, fieldnames=fieldnames)
+            writer.writerow({'question_choice': question_choice, 'extrainfo': extrainfo})
+    return render_template('results.html')
 #
 #
 #
