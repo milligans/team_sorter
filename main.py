@@ -1,4 +1,12 @@
 from questionnaire import Questionnaire
+from tkinter import *
+from question_class import *
+
+root=Tk()
+root.title=("Student Questionnaire")
+root.geometry("1000x500")
+app=Question_class(root)
+root.mainloop()
 
 student_responses=[]
 student_skills = Questionnaire()
@@ -9,6 +17,8 @@ student_questions = student_skills.quest_items
 student_answers = student_skills.answers
 still_answering=True
 print("\n \n *****Welcome to the student questionnaire, please answer as directed below.***** \n \n")
+
+app.create_prog_select("Degree Subject", ["high", "low", "medium"])
 
 while still_answering:
     for item in range(len(student_questions)):

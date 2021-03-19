@@ -15,24 +15,26 @@
         <br>
 
           {% for answer in range(student_answers[item]|length) %}
+            {% macro input(name, value, type='radio') -%}
+            <input type="{{ type }}" name="{{ item }}" value="{{ student_answers[item][answer-1] }}">{{ student_answers[item][answer-1] }}
+            {%- endmacro %}
 
+            <p>{{ input(' question ') }}</p>
 
-
-            <input type= "radio" name="question_choice" value={{ student_answers[item][answer-1] }}>{{ student_answers[item][answer-1] }}</br>
 
             {% endfor %}
 
 
 
 
-        <label for "text">Any extra information</label>
-        <input type="text" name="extrainfo">
-        <br>
 
 
 
     {% endfor %}
 
+        <label for "text">Any extra information</label>
+        <input type="text" name="extrainfo">
+        <br>
      <input type="submit"  values="Submit">
         </form>
 
@@ -41,4 +43,4 @@
 
 {% endblock content %}
 
-<!--TODO - make the file read multiple radio buttons at once-->
+<!--TODO - make the file read multiple radio buttons at once - DONE 19/03/2021-->

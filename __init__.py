@@ -36,12 +36,14 @@ def students():
 @app.route('/results', methods=['GET', 'POST'])
 def results():
     if request.method=='POST':
-        question_choice=request.form['question_choice']
+        first_choice=request.form["0"]
+        second_choice=request.form["1"]
+        third_choice=request.form["2"]
         extrainfo=request.form['extrainfo']
-        with open('results.csv', 'a') as inFile:
-            fieldnames=['question_choice','extrainfo']
-            writer= csv.DictWriter(inFile, fieldnames=fieldnames)
-            writer.writerow({'question_choice': question_choice, 'extrainfo': extrainfo})
+        with open('results.csv', 'w') as inFile:
+            fieldnames=['Question One', 'Question Two', 'Question Three', 'Extra Information']
+            writer= csv.DictWriter(inFile, fieldnames=fieldnames, delimiter = ';', extrasaction='ignore')
+            writer.writerow({'Question One': first_choice, 'Question Two': second_choice, 'Question Three': third_choice, 'Extra Information': extrainfo})
     return render_template('results.html')
 #
 #
