@@ -6,7 +6,7 @@ from questionnaire import Questionnaire
 from flask import flash, render_template, request, redirect
 
 
-posts = requests.get("https://api.npoint.io/43644ec4f0013682fc0d").json()
+
 
 
 
@@ -21,13 +21,16 @@ def index():
 
 @app.route('/students', methods=['GET', 'POST'] )
 def students():
+
     student_responses = []
     student_skills = Questionnaire()
     student_skills.build_questions()
     student_questions = student_skills.quest_items
     student_answers = student_skills.answers
     number_questions=len(student_questions)
-    return render_template("studentques.html", student_questions=student_questions, student_answers=student_answers, student_responses=student_responses, number_questions= number_questions)
+    number_answers=len(student_answers)
+
+    return render_template("studentques.html", students= students, student_questions=student_questions, student_answers=student_answers, student_responses=student_responses, number_questions= number_questions, number_answers=number_answers)
 
 # https://stackoverflow.com/questions/27379486/retrieving-html-form-data-and-storing-in-csv-with-flask-python?answertab=votes#tab-top
 @app.route('/results', methods=['GET', 'POST'])

@@ -1,23 +1,27 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<b>{{ student_answers }} is the answers to the questions
+{{ number_questions }} is the number of questions
+    {{ student_questions }}  are the questions </b>
 
 <form name="quiz" action="{{ url_for('results') }}" method="post" enctype="multipart/form-data">
 
     <p>Please select your answer from the list below</p>
     {% for item in range(number_questions) %}
+
         <b>{{ student_questions[item] }}</b>
         <label for "answers">Choose an answer</label>
         <br>
 
-
-            {% for part in range(1,5) %}
-
+          {% for answer in range(student_answers[item]|length) %}
 
 
-            <input type= "radio" name="question_choice" value={{ student_answers[item][part-1] }}>{{ student_answers[item][part-1] }}</br>
+
+            <input type= "radio" name="question_choice" value={{ student_answers[item][answer-1] }}>{{ student_answers[item][answer-1] }}</br>
 
             {% endfor %}
+
 
 
 
