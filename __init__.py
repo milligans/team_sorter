@@ -15,6 +15,10 @@ def index():
     return render_template("index.html")
 
 
+@app.route('/home')
+def home():
+    return render_template("index.html")
+
 
 @app.route('/students', methods=['GET', 'POST'] )
 def students():
@@ -38,10 +42,10 @@ def results():
         second_choice=request.form["1"]
         third_choice=request.form["2"]
         extrainfo=request.form['extrainfo']
-        with open('results.csv', 'w') as inFile:
+        with open('results.csv', 'a') as inFile:
             fieldnames=['Student Number','Question One', 'Question Two', 'Question Three', 'Extra Information']
             writer= csv.DictWriter(inFile, fieldnames=fieldnames, delimiter = ',', extrasaction='ignore')
-            writer.writeheader()
+            # writer.writeheader()
             writer.writerow({'Student Number': stud_no, 'Question One': first_choice, 'Question Two': second_choice, 'Question Three': third_choice, 'Extra Information': extrainfo})
     return render_template('results.html')
 

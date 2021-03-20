@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<b>{{ student_answers }} is the answers to the questions
-{{ number_questions }} is the number of questions
-    {{ student_questions }}  are the questions </b>
+<b>Welcome to the questionnaire - You have
+{{ number_questions }} questions to complete
+please answer all questions, and give any additional information in the text box.</b>
 
 <form name="quiz" action="{{ url_for('results') }}" method="post" enctype="multipart/form-data">
      <label for "text">Please enter your student number</label>
-        <input type="text" size="10" maxlength="10" name="stud_no">
+        <input type="text" size="10" maxlength="10" name="stud_no" required>
     <p>Please select your answer from the list below</p>
     {% for item in range(number_questions) %}
 
@@ -17,7 +17,7 @@
 
           {% for answer in range(student_answers[item]|length) %}
             {% macro input(name, value, type='radio') -%}
-            <input type="{{ type }}" name="{{ item }}" value="{{ student_answers[item][answer-1] }}">{{ student_answers[item][answer-1] }}
+            <input type="{{ type }}" name="{{ item }}" value="{{ student_answers[item][answer-1] }}" required>{{ student_answers[item][answer-1] }}
             {%- endmacro %}
 
             <p>{{ input(' question ') }}</p>

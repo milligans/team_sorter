@@ -1,6 +1,6 @@
-QUEST_DICTIONARY = {"What is your prior level of programming?": ("High", "Medium", "Low"),
-                    "What is your undergraduate degree type?": ("BSc", "BEng", "BA", "other"),
-                    "Which language is your preferred one?": ("Welsh", "English")
+QUEST_DICTIONARY = {"What is your prior level of programming?": ("High - familiar with more than one language", "Medium - some experience", "Low - no or very little"),
+                    "What is your undergraduate degree type?": ("BSc", "BEng", "BA","DLL", "other"),
+                    "Which language is preferred language?": ("Welsh", "English", "Esperanto")
                     }
 
 
