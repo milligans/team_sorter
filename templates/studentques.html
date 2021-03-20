@@ -6,7 +6,8 @@
     {{ student_questions }}  are the questions </b>
 
 <form name="quiz" action="{{ url_for('results') }}" method="post" enctype="multipart/form-data">
-
+     <label for "text">Please enter your student number</label>
+        <input type="text" size="10" maxlength="10" name="stud_no">
     <p>Please select your answer from the list below</p>
     {% for item in range(number_questions) %}
 
