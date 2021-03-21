@@ -9,10 +9,6 @@ QUEST_DICTIONARY = {"What is your prior level of programming?": ("High - familia
 class Questionnaire():
 
 
-    def __init__(self):
-        self.quest_items = []
-        self.answers = []
-
 
 
     def build_questions(self, QUEST_DICTIONARY):
