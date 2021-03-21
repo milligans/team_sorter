@@ -1,5 +1,5 @@
 from flask import Flask
-
+from flask import send_file
 from jinja2 import Template
 from flask import render_template, url_for, request, redirect, flash
 import csv
@@ -44,7 +44,7 @@ def results():
         extrainfo=request.form['extrainfo']
         with open('results.csv', 'a') as inFile:
             fieldnames=['Student Number','Question One', 'Question Two', 'Question Three', 'Extra Information']
-            writer= csv.DictWriter(inFile, fieldnames=fieldnames, delimiter = ',', extrasaction='ignore')
+            writer= csv.DictWriter(inFile, fieldnames=fieldnames, extrasaction='ignore')
             # writer.writeheader()
             writer.writerow({'Student Number': stud_no, 'Question One': first_choice, 'Question Two': second_choice, 'Question Three': third_choice, 'Extra Information': extrainfo})
     return render_template('results.html')
@@ -63,7 +63,17 @@ def login():
         return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
 
+@app.route('/staff', methods=['GET', 'POST'])
+def staff():
+    return render_template('staff_portal.html')
 
+@app.route('/getCSV')
+def getCSV():
+    return send_file('results.csv', mimetype='text/csv', attachment_filename="results.csv", as_attachment=True)
+
+@app.route('/view_quest')
+def view_quest():
+    return render_template('view_quest.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

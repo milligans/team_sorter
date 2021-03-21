@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<b>Welcome to the staff portal</b>
+ <div class="row  ms-5 me-5 mt-5 mb-5 ps-5 pe-5 pt-5 pb-5">
+        <div class="col justify-content-center text-center" style="..." id="staffdownload">
+              <a class = "navbar-brand ms-5 me-5 mt-5 mb-5 ps-5 pe-5 pt-5 pb-5" href="{{ url_for('getCSV') }}">
+                <img src= "{{ url_for('static', filename='img/quiz.png') }}" alt="quiz_pic"class="square"  width="100px" height="100px">
+            </a>
+        <a href = "{{ url_for ('getCSV') }}"><h3>Download Student Questionnaire Results</h3></a>
+        </div>
+         <div class="col justify-content-center text-center" style="..." id="holding_point">
+             <a class = "navbar-brand ms-5 me-5 mt-5 mb-5 ps-5 pe-5 pb-5 pt-5 " href="{{ url_for('staff') }}">
+                <img src= "{{ url_for('static', filename='img/staff.png') }}" alt="quiz_pic"class="square"width="100px" height="100px">
+            </a>
+             <a href ="{{ url_for('staff') }}"><h3> Holding Place</h3></a>
+        </div>
+    </div>
+<div class="row  ms-5 me-5 mt-5 mb-5 ps-5 pe-5 pt-5 pb-5">
+        <div class="col justify-content-center text-center" style="..." id="staffdownload">
+              <a class = "navbar-brand ms-5 me-5 mt-5 mb-5 ps-5 pe-5 pt-5 pb-5" href="{{ url_for('view_quest') }}">
+                <img src= "{{ url_for('static', filename='img/quiz.png') }}" alt="quiz_pic"class="square"  width="100px" height="100px">
+            </a>
+        <a href = "{{ url_for ('view_quest') }}"><h3>View Questionnaire Results</h3></a>
+        </div>
+         <div class="col justify-content-center text-center" style="..." id="holding_point">
+             <a class = "navbar-brand ms-5 me-5 mt-5 mb-5 ps-5 pe-5 pb-5 pt-5 " href="{{ url_for('staff') }}">
+                <img src= "{{ url_for('static', filename='img/staff.png') }}" alt="quiz_pic"class="square"width="100px" height="100px">
+            </a>
+             <a href ="{{ url_for('staff') }}"><h3> Holding Place</h3></a>
+        </div>
+    </div>
+{% endblock content %}
