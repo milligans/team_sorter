@@ -8,8 +8,9 @@ from flask import flash, render_template, request, redirect
 from importCSV import *
 import os.path
 
-app = Flask(__name__)
 
+app = Flask(__name__)
+application = app
 
 @app.route('/')
 def index():
