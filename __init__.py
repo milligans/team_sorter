@@ -94,7 +94,7 @@ def view_quest():
 def purge():
     os.remove("results.csv")
     message="Success! Results purged."
-    return render_template("view_quest.html",  message = message)
+    return render_template("staff_portal.html",  message = message)
 
 if __name__ == "__main__":
     app.run(debug=True)

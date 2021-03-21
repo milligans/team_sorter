@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:100%;">
 <head>
     <meta charset="UTF-8">
     <title>Team Allocation and Peer Review Tool</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel=stylesheet type="text/css" href="{{url_for('static', filename='style.css') }}">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
 
 
+
+
+
+
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-xxl navbar-light bg-primary" style="">
         <form class="container-fluid justify-content-start">
             <a class = "navbar-brand ms-5 me-5 ps-5 pe-5" href="{{ url_for('home') }}">
@@ -62,6 +68,7 @@
             </div>
         </form>
     </nav>
+    <main class="flex-grow-1">
     <div class = container id ="wrapping">
         <div class ="container-md" id="home_content">
              {% block content %}
@@ -69,16 +76,18 @@
 
         </div>
     </div>
+    </main>
      <footer>
-        <div class="container device-width">
+
+        <div class="container device-width ">
             <div class="row">
 
-                <div class="col">
+                <div class="col justify-content-center text-center">
                     <a href="mailto:milligansp@cardiff.ac.uk"><span class="material-icons md-dark md-36">email</span></a>
-                    <a href="mailto:milligansp@cardiff.ac.uk">Email me</a>
+                    <a href="mailto:milligansp@cardiff.ac.uk"><small>Request Assistance</small></a>
                 </div>
-                <div class="col">
-                    <p>&#169; 2021.Built by Team R.</p>
+                <div class="col justify-content-center text-center">
+                    <small>&#169; 2021 Built by Team R</small>
                 </div>
             </div>
         </div>
