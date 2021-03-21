@@ -73,12 +73,11 @@ def staff():
 
 @app.route('/getCSV')
 def getCSV():
-    file_exists = os.path.isfile(results.csv)
+    file_exists = os.path.isfile("results.csv")
     if file_exists:
         return send_file('results.csv', mimetype='text/csv', attachment_filename="results.csv", as_attachment=True)
     else:
-        message="The file doesn't exist yet"
-        return message
+        return render_template('no_results.html')
 
 @app.route('/view_quest')
 def view_quest():
