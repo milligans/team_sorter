@@ -71,6 +71,10 @@ def login():
 def staff():
     return render_template('staff_portal.html')
 
+@app.route('/studentportal')
+def studentportal():
+    return render_template('student_portal.html')
+
 @app.route('/getCSV')
 def getCSV():
     file_exists = os.path.isfile("results.csv")

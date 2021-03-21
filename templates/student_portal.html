@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row ms-5 me-5 mt-5">
+        <div class="col justify-content-center text-left id="studentportalwelcome">
+            <h6><b>Welcome to the Student Portal</b></h6>
+        </div>
+    </div>
+<div>
+
+    <div class="row  ms-5 me-5 mt-5 mb-5 ps-5 pe-5 pt-5 pb-5">
+        <div class="col justify-content-center text-center" style="..." id="studqueslink">
+              <a class = "navbar-brand ms-5 me-5 mt-5 mb-5 ps-5 pe-5 pt-5 pb-5" href="{{ url_for('students') }}">
+                <img src= "{{ url_for('static', filename='img/quiz.png') }}" alt="quiz_pic"class="square"  width="100px" height="100px">
+            </a>
+        <a href = "{{ url_for('students') }}"><h3>Student Questionnaire</h3></a>
+        </div>
+         <div class="col justify-content-center text-center" style="..." id="peerreview">
+             <a class = "navbar-brand ms-5 me-5 mt-5 mb-5 ps-5 pe-5 pb-5 pt-5 " href="{{ url_for('home') }}">
+                <img src= "{{ url_for('static', filename='img/teams.png') }}" alt="peer_review"class="square"width="100px" height="100px">
+            </a>
+        <a href="{{url_for('home')}}"><h3> Peer Review (Dummy)</h3></a>
+        </div>
+    </div>
+    <div class="row ms-5 me-5">
+        <div class="col justify-content-center text-left id="welcometext">
+            <h6><b>Welcome to the Team Allocation and Peer Review Tool</b><br>Here you will be able to complete a questionnaire to enable team selection. You will
+            also be able to assess your peers within a team, and submit your completed form to your lecturers. </h6>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
