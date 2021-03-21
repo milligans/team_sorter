@@ -3,7 +3,7 @@ from flask import Flask
 from jinja2 import Template
 from flask import render_template, url_for, request, redirect, flash
 import csv
-from questionnaire import Questionnaire
+from questionnaire import *
 from flask import flash, render_template, request, redirect
 
 
@@ -25,7 +25,7 @@ def students():
 
     student_responses = []
     student_skills = Questionnaire()
-    student_skills.build_questions()
+    student_skills.build_questions(QUEST_DICTIONARY)
     student_questions = student_skills.quest_items
     student_answers = student_skills.answers
     number_questions=len(student_questions)
