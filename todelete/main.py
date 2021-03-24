@@ -1,6 +1,5 @@
 from questionnaire import Questionnaire
-from tkinter import *
-from question_class import *
+from todelete.question_class import *
 
 root=Tk()
 root.title=("Student Questionnaire")

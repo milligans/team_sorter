@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Team Allocation and Peer Review Tool</title>
+<!--    link to bootstrap external stylesheet-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<!--        internal style sheet  -->
     <link rel=stylesheet type="text/css" href="{{url_for('static', filename='style.css') }}">
+<!--    link to google icon fonts for the email logo -->
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 
-
+<!--navbar code-->
 
 
 
@@ -68,6 +71,8 @@
             </div>
         </form>
     </nav>
+
+<!--    start of container for main content, flex grow 1 makes it fill the whole page, thus pushing the footer to the bottom-->
     <main class="flex-grow-1">
     <div class = container id ="wrapping">
         <div class ="container-md" id="home_content">
@@ -77,6 +82,9 @@
         </div>
     </div>
     </main>
+
+<!--    end of main content container-->
+<!--    start of footer -->
      <footer>
 
         <div class="container device-width ">
@@ -93,7 +101,7 @@
         </div>
     </footer>
 
-
+<!--javascript code required for bootstrap-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>

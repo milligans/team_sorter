@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+<!--a table is created for each item in the csv file, the csv file is converted into arrays using importCSV.py. The first -->
+<!--row of the csv file is taken for the headings-->
 <br>
 <p>These are the results of the student questionnaire.</p>
 <br>
@@ -34,6 +37,8 @@
     {% endfor %}
         </tbody>
     </table>
+
+<!--purging the file - the route for purge runs python code to delete results.csv-->
 
 <h5>To clear the results please click <a href="{{ url_for('purge') }}"><b>here</b></a>. Please note this is irreversible.</h5>
 {% endblock content %}

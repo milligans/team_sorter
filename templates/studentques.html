@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+<!--the student questionnaire page - a form has been set up and the jinja code iterates through the question array and then iterates through the answer array for each question-->
+<!--the name of the question has to be unique for setting up the csv - therefore I have named the input after the question it refers to by using the item tag which -->
+<!--returns the index value of the question eg0, 1, 2 .The macro 'input' is the code needed to set up a radio button item for the form etc. The student number is set to only
+accept 7 digits-->
+
 <b>Welcome to the questionnaire - You have
 {{ number_questions }} questions to complete
 please answer all questions, and give any additional information in the text box.</b>
