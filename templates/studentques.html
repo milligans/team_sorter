@@ -4,16 +4,31 @@
 
 <!--the student questionnaire page - a form has been set up and the jinja code iterates through the question array and then iterates through the answer array for each question-->
 <!--the name of the question has to be unique for setting up the csv - therefore I have named the input after the question it refers to by using the item tag which -->
-<!--returns the index value of the question eg0, 1, 2 .The macro 'input' is the code needed to set up a radio button item for the form etc. The student number is set to only
-accept 7 digits-->
+<!--returns the index value of the question eg0, 1, 2 .The macro 'input' is the code needed to set up a radio button item for the form etc. The student number is set to only-->
+<!--accept 7 digits the email is set to only accept a valid formatted email address-->
 
 <b>Welcome to the questionnaire - You have
 {{ number_questions }} questions to complete
 please answer all questions, and give any additional information in the text box.</b>
 
+<!--https://stackoverflow.com/questions/16883549/html-5-number-regular-expression/16883573#16883573 for the validation of the number code-->
+<!--https://html5-tutorial.net/form-validation/validating-email for the validation of the email address format-->
 <form name="quiz" action="{{ url_for('results') }}" method="post" enctype="multipart/form-data">
-     <label for "text">Please enter your student number</label>
-        <input type="text" size="10" maxlength="7" name="stud_no" required>
+    <div class ="container">
+        <div class ="row">
+            <div class ="col-sm">
+                <div class = "form-floating mb-3">
+                    <input type="text" class="form-control" id = "floatingNumber" placeholder = "0000000" pattern ="[0-9]{1,7}" size="10" maxlength="7" name="stud_no" required>
+                    <label for="floatingNumber">Please enter your student number</label>
+                </div>
+            </div>
+            <div class = "col-sm">
+                <div class = "form-floating mb-3">
+                <input type="email" class= "form-control" id = "floatingInput" placeholder="student@cardiff.ac.uk" pattern =".+@cardiff.ac.uk" size="30" maxlength="100" name="stud_email" required>
+                <label for "floatingInput">Please enter your university email address:<br>  </label>
+                </div>
+            </div>
+        </div>
     <p>Please select your answer from the list below</p>
     {% for item in range(number_questions) %}
 
