@@ -1,6 +1,2 @@
-Student Number,Program Skills,Degree,Lang. Pref,Extra Information
-2102394,Low - no or very little,BEng,English,no prior knowledge
-1234567,High - familiar with more than one language,BSc,English,python and javascript knowledge
-6666666,Medium - some experience,BA,Welsh,some python experience
-1234568,Medium - some experience,DLL,English,have created websites before
-2346781,High - familiar with more than one language,BA,English,"python knowledge, javascript, java and asp.net"
+Student Number,Student Email,Program Skills,Degree,Lang. Pref,Extra Information
+2102394,korova_blue@cardiff.ac.uk,Low - no or very little,other,English,test file

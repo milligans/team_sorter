@@ -41,17 +41,18 @@ def students():
 def results():
     if request.method=='POST':
         stud_no=request.form["stud_no"]
+        stud_email=request.form["stud_email"]
         first_choice=request.form["0"]
         second_choice=request.form["1"]
         third_choice=request.form["2"]
         extrainfo=request.form['extrainfo']
         file_exists=os.path.isfile("results.csv")
         with open('results.csv', 'a') as inFile:
-            fieldnames=['Student Number','Program Skills', 'Degree', 'Lang. Pref', 'Extra Information']
+            fieldnames=['Student Number','Student Email','Program Skills', 'Degree', 'Lang. Pref', 'Extra Information']
             writer= csv.DictWriter(inFile, fieldnames=fieldnames, extrasaction='ignore')
             if not file_exists:
                 writer.writeheader()
-            writer.writerow({'Student Number': stud_no, 'Program Skills': first_choice, 'Degree': second_choice, 'Lang. Pref': third_choice, 'Extra Information': extrainfo})
+            writer.writerow({'Student Number': stud_no, 'Student Email': stud_email, 'Program Skills': first_choice, 'Degree': second_choice, 'Lang. Pref': third_choice, 'Extra Information': extrainfo})
     return render_template('results.html')
 
 # the method above defines the fields  of the csv file from the names of the html elements in the form, there is then a method to open and write to a csv file with those items.
