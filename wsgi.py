@@ -7,6 +7,7 @@ from questionnaire import *
 from flask import flash, render_template, request, redirect
 from importCSV import *
 import os.path
+from TeamSorting import *
 
 
 app = Flask(__name__)
@@ -104,6 +105,24 @@ def purge():
     return render_template("staff_portal.html",  message = message)
 #completely wipes results csv from the system allowing new file to be created the next time a student triggers it
 #by completing a questionnaire
+
+@app.route('/staffques')
+def staffques():
+    file_exists = os.path.isfile("results.csv")
+    if file_exists:
+        res = importCSV('results.csv')
+        stud_ans = res.getcsvs('results.csv')
+        number_records = len(stud_ans)
+        ts=TeamSorting()
+
+        teams = ts.makeArray(ansarray = stud_ans, m=1, n=1)
+
+        return render_template('staffques.html',  teams=teams, stud_ans = stud_ans, number_records= number_records)
+    else:
+        return render_template('no_results.html')
+
+
+
 
 
 if __name__ == "__main__":

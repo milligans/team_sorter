@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<b>Welcome to the staff sorting page</b>
+<p>These are the results of the student questionnaire.</p>
+<br> <p>The student answer array is:  {{ stud_ans }}</p>
+<p> The first record programming info in the student answers array is  {{ stud_ans[1][2] }}</p>
+<br><br>
+<p> The calculated array using the python method in TeamSorting.py is  {{ teams }}</p>
+<p>The number of records are {{ number_records - 1}}</p>
+
+{% endblock content %}
