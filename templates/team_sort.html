@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>Welcome to the Staff Team Sorting page</h3>
+<p>Here you will be able to select your team preferences and desired team size. </p>
+<p>These are the results of the student questionnaire.</p>
+
+<p>The number of records are {{ number_records - 1}}</p>
+{% if number_records -1 < 7 %}
+    <p>There are too few records to sort!</p>
+{% endif %}
+
+<form name="weighting" action="{{ url_for('staffques') }}" method="post" enctype="multipart/form-data">
+    <div class ="container">
+        <div class ="row">
+            <div class ="col-sm">
+                <div class = "form-floating mb-3">
+                    <input type="number" class="form-control" id = "floatingNumber" placeholder = "000" pattern ="[0-9]{1,2}" size="3" maxlength="3" name="deg_weighting" required>
+                    <label for="floatingNumber">Please enter the weighting for degree</label>
+                </div>
+            </div>
+            <div class = "col-sm">
+                <div class = "form-floating mb-3">
+                <input type="number" class= "form-control" id = "floatingNumber2" placeholder="000" pattern = "[0-9]{1,2}" size="3" maxlength="3" name="prog_weighting" required>
+                <label for "floatingNumber2">Please enter the weighting for programming skills:<br>  </label>
+                </div>
+            </div>
+        </div>
+         <div class = "col-sm">
+                <div class = "form-floating mb-3">
+                <input type="number" class= "form-control" id = "floatingNumber3" placeholder="000" pattern = "[0-9]{1,2}" size="3" maxlength="3" name="team_size" required>
+                <label for "floatingNumber3">Please enter the team size:<br>  </label>
+                </div>
+            </div>
+        </div>
+
+     <input type="submit"  values="Submit">
+        </form>
+
+
+
+
+{% endblock content %}

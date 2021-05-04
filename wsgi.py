@@ -106,8 +106,12 @@ def purge():
 #completely wipes results csv from the system allowing new file to be created the next time a student triggers it
 #by completing a questionnaire
 
-@app.route('/staffques')
+@app.route('/staffques', methods=['GET', 'POST'])
 def staffques():
+    if request.method=='POST':
+        m =int(request.form["deg_weighting"])
+        n =int(request.form["prog_weighting"])
+        sz = int(request.form["team_size"])
     file_exists = os.path.isfile("results.csv")
     if file_exists:
         res = importCSV('results.csv')
@@ -115,13 +119,24 @@ def staffques():
         number_records = len(stud_ans)
         ts=TeamSorting()
 
-        teams = ts.makeArray(ansarray = stud_ans, m=1, n=1)
+        teams = ts.makeArray(ansarray = stud_ans, m=m, n=n, sz=sz)
 
-        return render_template('staffques.html',  teams=teams, stud_ans = stud_ans, number_records= number_records)
+
+        return render_template('staffques.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz)
     else:
         return render_template('no_results.html')
 
-
+# the above method is for taking the results and putting it into an array of arrays which can then be operated on by TeamSorting()
+@app.route('/team_sort', methods=['GET', 'POST'])
+def team_sort():
+    file_exists = os.path.isfile("results.csv")
+    if file_exists:
+        res = importCSV('results.csv')
+        stud_ans = res.getcsvs('results.csv')
+        number_records = len(stud_ans)
+        return render_template('team_sort.html',  stud_ans=stud_ans, number_records=number_records)
+    else:
+        return render_template('no_results.html')
 
 
 
