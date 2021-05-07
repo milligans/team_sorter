@@ -45,7 +45,7 @@ class TeamSorting():
                     # programming skills score which have already been weighted
 
                     team_select.append(i)
-                    j = j + 1
+                j = j + 1
 
         # to split into composite score first
 
@@ -85,25 +85,30 @@ class TeamSorting():
         team_number = 1
 
         for item in welsh_team:
-            cpwt.append((item[0], item[1], "Welsh language", team_number))
+            cpwt.append((item[0], item[1], "Welsh language", team_number, item[5]))
             if counter == sz:
                 team_number = team_number + 1
                 counter = 1
             else:
                 counter = counter + 1
-        counter =1
-        team_number =1
+        counter = 1
+        team_number = number_welsh_teams + 1
         for item in english_team:
-            cpet.append((item[0], item[1], "English Language", team_number + number_welsh_teams))
+            cpet.append((item[0], item[1], "English Language", team_number, item[5]))
             if counter == sz:
-                team_number = team_number + 1
                 counter = 1
+                team_number = team_number + 1
+                if (team_number >= number_english_teams + number_welsh_teams):
+                    team_number = number_welsh_teams + 1
+                    counter = counter - 1
+
+
             else:
                 counter = counter + 1
 
         # print(cpwt)
         # print(cpet)
-        complete_teams.append(("Student Number", "Student Email", "Language Pref", "Team Number"))
+        complete_teams.append(("Student Number", "Student Email", "Language Pref", "Team Number", "Extra Information"))
         for item in cpwt:
             complete_teams.append(item)
 

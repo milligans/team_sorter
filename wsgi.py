@@ -125,12 +125,12 @@ def staffques():
     teams_exist = os.path.isfile("teams.csv")
     with open('teams.csv', 'w' ) as inFile:
 
-        fieldnames = ['Student Number', 'Student Email','Lang Pref', 'Team Number']
+        fieldnames = ['Student Number', 'Student Email','Lang Pref', 'Team Number', 'Extra Info']
         writer = csv.DictWriter(inFile, fieldnames=fieldnames, extrasaction='ignore')
         if not teams_exist:
             writer.writeheader()
         for item in teams:
-            writer.writerow({ 'Student Number': item[0], 'Student Email': item[1], 'Lang Pref': item[2], 'Team Number': item[3]})
+            writer.writerow({ 'Student Number': item[0], 'Student Email': item[1], 'Lang Pref': item[2], 'Team Number': item[3], 'Extra Info': item[4]})
         return render_template('team_results.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz)
     # else:
     #     return render_template('no_results.html')
@@ -150,7 +150,7 @@ def team_sort():
 
 @app.route('/team_download')
 def team_download():
-    file_exists = os.path.isfile("teams.csv")
+    file_exists = os.path.isfile('teams.csv')
     if file_exists:
         return send_file('teams.csv', mimetype='text/csv', attachment_filename="teams.csv", as_attachment=True)
     else:
