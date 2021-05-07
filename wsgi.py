@@ -120,11 +120,21 @@ def staffques():
         ts=TeamSorting()
 
         teams = ts.makeArray(ansarray = stud_ans, m=m, n=n, sz=sz)
-
-
-        return render_template('team_results.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz)
     else:
         return render_template('no_results.html')
+    teams_exist = os.path.isfile("teams.csv")
+    with open('teams.csv', 'w' ) as inFile:
+
+        fieldnames = ['Student Number', 'Student Email','Lang Pref', 'Team Number']
+        writer = csv.DictWriter(inFile, fieldnames=fieldnames, extrasaction='ignore')
+        if not teams_exist:
+            writer.writeheader()
+        for item in teams:
+
+            writer.writerow({ 'Student Number': item[0], 'Student Email': item[1], 'Lang Pref': item[2], 'Team Number': item[3]})
+        return render_template('team_results.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz)
+    # else:
+    #     return render_template('no_results.html')
 
 # the above method is for taking the results and putting it into an array of arrays which can then be operated on by TeamSorting()
 @app.route('/team_sort', methods=['GET', 'POST'])
