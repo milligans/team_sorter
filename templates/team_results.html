@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!--a table is created for each item in the csv file, the csv file is converted into arrays using importCSV.py. The first -->
+<!--row of the csv file is taken for the headings-->
+<br>
+<p>These are the results of the team sort.</p>
+<br>
+<p>The number of records are {{ number_records -1  }}</p>
+<p>The selected team size was {{ sz }}</p>
+<br>
+<br>
+    <table class = "table">
+    {% for item in range(0,1) %}
+    <thead>
+        <tr>
+        {% for answer in range(teams[item]|length) %}
+        <th scope="col">
+        <b>{{ teams[item][answer] }}</b>
+        </th>
+        {% endfor %}
+
+    {% endfor %}
+        </tr>
+    </thead>
+        <tbody>
+    {% for item in range(1,number_records) %}
+        <tr>
+
+        {% for answer in range(teams[item]|length) %}
+
+       <td>
+        <b>{{teams[item][answer] }}</b>
+        </td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+<!--purging the file - the route for purge runs python code to delete results.csv-->
+
+
+{% endblock content %}

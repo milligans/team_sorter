@@ -122,7 +122,7 @@ def staffques():
         teams = ts.makeArray(ansarray = stud_ans, m=m, n=n, sz=sz)
 
 
-        return render_template('staffques.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz)
+        return render_template('team_results.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz)
     else:
         return render_template('no_results.html')
 
@@ -135,6 +135,15 @@ def team_sort():
         stud_ans = res.getcsvs('results.csv')
         number_records = len(stud_ans)
         return render_template('team_sort.html',  stud_ans=stud_ans, number_records=number_records)
+    else:
+        return render_template('no_results.html')
+
+
+@app.route('/team_download')
+def team_download():
+    file_exists = os.path.isfile("teams.csv")
+    if file_exists:
+        return send_file('teams.csv', mimetype='text/csv', attachment_filename="teams.csv", as_attachment=True)
     else:
         return render_template('no_results.html')
 
