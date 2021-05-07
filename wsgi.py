@@ -130,7 +130,6 @@ def staffques():
         if not teams_exist:
             writer.writeheader()
         for item in teams:
-
             writer.writerow({ 'Student Number': item[0], 'Student Email': item[1], 'Lang Pref': item[2], 'Team Number': item[3]})
         return render_template('team_results.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz)
     # else:

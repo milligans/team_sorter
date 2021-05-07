@@ -4,7 +4,7 @@
 
 <h3>Welcome to the Staff Team Sorting page</h3>
 <p>Here you will be able to select your team preferences and desired team size. </p>
-<p>These are the results of the student questionnaire.</p>
+<p>These are the results of the student questionnaire {{ stud_ans }}.</p>
 <p></p>
 
 <p>The number of records are {{ number_records - 1}}</p>
@@ -12,6 +12,7 @@
     <p>There are too few records to sort!</p>
 {% endif %}
 
+{{ ansarray }}
 <form name="weighting" action="{{ url_for('staffques') }}" method="post" enctype="multipart/form-data">
     <div class ="container">
         <div class ="row">
