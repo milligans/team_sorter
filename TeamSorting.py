@@ -64,15 +64,30 @@ class TeamSorting():
 
         # make the team the size specified, if the remainder is less than 75% of the team size then they will be added
         # to existing teams, if more than 75% then they will make a smaller team
-        if len(welsh_team) % sz == 0 or len(welsh_team) % sz < (sz * 0.75):
+        if len(welsh_team) % sz == 0:
+            number_welsh_teams = len(welsh_team) // sz
+        elif len(welsh_team) % sz < 0:
+            number_welsh_teams = 1
+        elif len(welsh_team) % sz > 0.75 * sz:
             number_welsh_teams = len(welsh_team) // sz
         else:
-            number_welsh_teams = len(welsh_team) // sz + 1
+            number_welsh_teams = len(welsh_team) // sz
+        if number_welsh_teams<1:
+            number_welsh_teams = 1
 
-        if len(english_team) % sz == 0 or len(english_team) % sz < (sz * 0.75):
+        if len(english_team) % sz == 0:
             number_english_teams = len(english_team) // sz
+        elif len(english_team) % sz < 0:
+            number_english_teams = 1
+        elif len(english_team) % sz > 0.75 * sz:
+            number_english_teams = len(english_team) // sz
+
         else:
-            number_english_teams = len(english_team) // sz + 1
+            number_english_teams = len(english_team) // sz
+
+        if number_english_teams < 1:
+            number_english_teams = 1
+
 
         # calculate the number of teams required and add one to mop up the excess if there is a remainder
         # print(len(welsh_team), "in the Welsh group")
@@ -80,33 +95,38 @@ class TeamSorting():
         # print(len(english_team), "number in English group")
         # print(number_english_teams, "number of English teams")
 
-        counter = 1
+        counter = 0
 
         team_number = 1
 
         for item in welsh_team:
-            cpwt.append((item[0], item[1], "Welsh language", team_number, item[5]))
+
             if counter == sz:
                 team_number = team_number + 1
+                if team_number > number_welsh_teams:
+                    team_number = team_number - 1
                 counter = 1
-                if (team_number >= number_welsh_teams):
-                    team_number = 1
-                    counter = counter - 1
+                cpwt.append((item[0], item[1], "Welsh language", team_number, item[5]))
+
             else:
+                cpwt.append((item[0], item[1], "Welsh language", team_number, item[5]))
                 counter = counter + 1
-        counter = 1
+
+        counter = 0
         team_number = number_welsh_teams + 1
         for item in english_team:
-            cpet.append((item[0], item[1], "English Language", team_number, item[5]))
+
             if counter == sz:
-                counter = 1
+                counter = 0
                 team_number = team_number + 1
-                if (team_number >= number_english_teams + number_welsh_teams):
-                    team_number = number_welsh_teams + 1
-                    counter = counter - 1
+                if team_number > number_welsh_teams + number_english_teams:
+                    team_number = team_number - 1
+                cpet.append((item[0], item[1], "English Language", team_number, item[5]))
+
 
 
             else:
+                cpet.append((item[0], item[1], "English Language", team_number, item[5]))
                 counter = counter + 1
 
         # print(cpwt)
