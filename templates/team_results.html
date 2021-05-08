@@ -5,11 +5,13 @@
 <!--a table is created for each item in the csv file, the csv file is converted into arrays using importCSV.py. The first -->
 <!--row of the csv file is taken for the headings-->
 <br>
-<p>These are the results of the team sort.</p>
+<h3>Team Sort Results</h3>
 <br>
-<p>The number of records are {{ number_records -1  }}</p>
-<p>The selected team size was {{ sz }}</p>
-<p> The complete records are {{ teams }}</p>
+<p>The table below gives the results from the team sort. You can also download a csv file of the sort by clicking <a href=" {{ url_for('team_download') }}">here</a>.</p>
+<p>The number of questionnaires completed is <b>{{ number_records -1  }}</b></p>
+<p>The selected team size was <b>{{ sz }}</b></p>
+<p>The weighting for degree type was {{ m }}</p>
+<p>The weighting for programming experience was {{ n }}</p>
 <br>
 <br>
     <table class = "table">

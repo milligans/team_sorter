@@ -89,6 +89,9 @@ class TeamSorting():
             if counter == sz:
                 team_number = team_number + 1
                 counter = 1
+                if (team_number >= number_welsh_teams):
+                    team_number = 1
+                    counter = counter - 1
             else:
                 counter = counter + 1
         counter = 1

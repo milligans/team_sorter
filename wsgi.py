@@ -131,7 +131,7 @@ def staffques():
             writer.writeheader()
         for item in teams:
             writer.writerow({ 'Student Number': item[0], 'Student Email': item[1], 'Lang Pref': item[2], 'Team Number': item[3], 'Extra Info': item[4]})
-        return render_template('team_results.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz)
+        return render_template('team_results.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz,  m=m, n = n)
     # else:
     #     return render_template('no_results.html')
 
