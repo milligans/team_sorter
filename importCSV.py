@@ -9,7 +9,7 @@ import csv
 class importCSV():
 
     def __init__(self, file):
-        self.file='results.csv'
+        self.file=file
         self.answers_dict={}
         self.result_array=[]
 

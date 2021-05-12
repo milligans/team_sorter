@@ -7,6 +7,7 @@ from questionnaire import *
 from flask import flash, render_template, request, redirect
 from importCSV import *
 import os.path
+from TeamSorting import *
 
 
 app = Flask(__name__)
@@ -104,6 +105,57 @@ def purge():
     return render_template("staff_portal.html",  message = message)
 #completely wipes results csv from the system allowing new file to be created the next time a student triggers it
 #by completing a questionnaire
+
+@app.route('/staffques', methods=['GET', 'POST'])
+def staffques():
+    if request.method=='POST':
+        m =int(request.form["deg_weighting"])
+        n =int(request.form["prog_weighting"])
+        sz = int(request.form["team_size"])
+    file_exists = os.path.isfile("results.csv")
+    if file_exists:
+        res = importCSV('results.csv')
+        stud_ans = res.getcsvs('results.csv')
+        number_records = len(stud_ans)
+        ts=TeamSorting()
+
+        teams = ts.makeArray(ansarray = stud_ans, m=m, n=n, sz=sz)
+    else:
+        return render_template('no_results.html')
+    teams_exist = os.path.isfile("teams.csv")
+    with open('teams.csv', 'w' ) as inFile:
+
+        fieldnames = ['Student Number', 'Student Email','Lang Pref', 'Team Number', 'Extra Info']
+        writer = csv.DictWriter(inFile, fieldnames=fieldnames, extrasaction='ignore')
+        if not teams_exist:
+            writer.writeheader()
+        for item in teams:
+            writer.writerow({ 'Student Number': item[0], 'Student Email': item[1], 'Lang Pref': item[2], 'Team Number': item[3], 'Extra Info': item[4]})
+        return render_template('team_results.html',  teams=teams, stud_ans = stud_ans, number_records= number_records, sz=sz,  m=m, n = n)
+    # else:
+    #     return render_template('no_results.html')
+
+# the above method is for taking the results and putting it into an array of arrays which can then be operated on by TeamSorting()
+@app.route('/team_sort', methods=['GET', 'POST'])
+def team_sort():
+    file_exists = os.path.isfile("results.csv")
+    if file_exists:
+        res = importCSV('results.csv')
+        stud_ans = res.getcsvs('results.csv')
+        number_records = len(stud_ans)
+        return render_template('team_sort.html',  stud_ans=stud_ans, number_records=number_records)
+    else:
+        return render_template('no_results.html')
+
+
+@app.route('/team_download')
+def team_download():
+    file_exists = os.path.isfile('teams.csv')
+    if file_exists:
+        return send_file('teams.csv', mimetype='text/csv', attachment_filename="teams.csv", as_attachment=True)
+    else:
+        return render_template('no_results.html')
+
 
 
 if __name__ == "__main__":

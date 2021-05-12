@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!--a table is created for each item in the csv file, the csv file is converted into arrays using importCSV.py. The first -->
+<!--row of the csv file is taken for the headings-->
+<br>
+<h3>Team Sort Results</h3>
+<br>
+<p>The table below gives the results from the team sort. You can also download a csv file of the sort by clicking <a href=" {{ url_for('team_download') }}">here</a>.</p>
+<p>The number of questionnaires completed is <b>{{ number_records -1  }}</b></p>
+<p>The selected team size was <b>{{ sz }}</b></p>
+<p>The weighting for degree type was {{ m }}</p>
+<p>The weighting for programming experience was {{ n }}</p>
+<br>
+<br>
+    <table class = "table">
+    {% for item in range(0,1) %}
+    <thead>
+        <tr>
+        {% for answer in range(teams[item]|length) %}
+        <th scope="col">
+        <b>{{ teams[item][answer] }}</b>
+        </th>
+        {% endfor %}
+
+    {% endfor %}
+        </tr>
+    </thead>
+        <tbody>
+    {% for item in range(1,number_records) %}
+        <tr>
+
+        {% for answer in range(teams[item]|length) %}
+
+       <td>
+        <b>{{teams[item][answer] }}</b>
+        </td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+<h6> To download the teams csv file please click here <a href=" {{ url_for('team_download') }}"> here </a></h6>
+<!--purging the file - the route for purge runs python code to delete results.csv-->
+
+
+{% endblock content %}

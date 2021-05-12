@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>Welcome to the Staff Team Sorting page</h3>
+<h6>Here you will be able to select your team preferences and desired team size. </h6>
+<!--<p>These are the results of the student questionnaire {{ stud_ans }}.</p>-->
+<p></p>
+
+<p>The total number of questionnaires submitted is {{ number_records - 1}}. </p> <p>To give more weighting to an option type slide <b>right</b></p>
+{% if number_records -1 < 7 %}
+    <p>There are too few records to sort!</p>
+{% endif %}
+
+
+<form name="weighting" action="{{ url_for('staffques') }}" method="post" enctype="multipart/form-data">
+    <div class ="container">
+        <div class ="row">
+            <div class ="col-sm mt-3 mb-1">
+                <div class = "form-floating mt-3 mb-5 ">
+                  <input type="range" class="form-range" id = "customRange" min="1" max="5" step ="1" name="deg_weighting" required>
+                    <label for="customRange">Please enter the weighting for degree</label>
+                </div>
+            </div>
+            <div class = "col-sm mt-3 mb-1">
+                <div class = "form-floating mb-5 mt-3">
+                <input type="range" class= "form-range" id = "customRange2" min="1" max="5" step ="1" name="prog_weighting" required>
+                <label for="customRange2">Please enter the weighting for programming skills:<br>  </label>
+
+                </div>
+            </div>
+        </div>
+         <div class = "col-sm mt-2 mb-3">
+                <div class = "form-floating mb-3 mt-5">
+                <select type="number" class= "form-select" id = "floatingSelect" aria-label="Floating label select " name="team_size" required>
+                    <option value ="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                    <option value="9">Nine</option>
+                    <option value="10">Ten</option>
+                </select>
+                <label for "floatingSelect">Please enter the team size:<br>  </label>
+                </div>
+            </div>
+        </div>
+
+     <input type="submit"  values="Submit">
+        </form>
+
+
+
+
+{% endblock content %}
