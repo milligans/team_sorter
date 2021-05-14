@@ -49,7 +49,7 @@ class TeamSorting():
 
         # to split into composite score first
 
-        team_select.sort(key = lambda x: x[3])
+        team_select.sort(key = lambda x: x[3%sz])
         team_select.sort(key=lambda x: x[4])
         # then split on language
 
@@ -102,7 +102,7 @@ class TeamSorting():
         for item in welsh_team:
 
             if counter == sz:
-                team_number = team_number + 1
+                team_number = team_number+1
                 if team_number > number_welsh_teams:
                     team_number = team_number - 1
                 counter = 1

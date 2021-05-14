@@ -1,13 +1,27 @@
 Student Number,Student Email,Language Pref,Team Number,Extra Information
-4536453,man@cardiff.ac.uk,Welsh language,1,
-5455611,12missafew@cardiff.ac.uk,Welsh language,1,
-1234234,iamco@cardiff.ac.uk,Welsh language,1,
-4534545,46@cardiff.ac.uk,Welsh language,1,
-6666666,brennan@cardiff.ac.uk,English Language,2,
-4545456,person@cardiff.ac.uk,English Language,2,
-2222222,cardiffstudent@cardiff.ac.uk,English Language,2,very little prior knowledge of programming
-1234567,andrew@cardiff.ac.uk,English Language,2,I am cool
-1332523,a@cardiff.ac.uk,English Language,2,I'm really rubbish at it
-2102394,me@cardiff.ac.uk,English Language,2,
-1111111,1@cardiff.ac.uk,English Language,2,additional information
-2102394,koro@cardiff.ac.uk,English Language,2,some c# knowledge
+2000002,b@cardiff.ac.uk,Welsh language,1,H-BEng-W
+2000003,c@cardiff.ac.uk,Welsh language,1,M-o-W
+2000006,f@cardiff.ac.uk,Welsh language,1,L-BA-W
+2000018,r@cardiff.ac.uk,Welsh language,2,M-BSc-W
+2000020,t@cardiff.ac.uk,Welsh language,2,M-BSc-W
+2000025,y@cardiff.ac.uk,Welsh language,2,M-BEng-W
+2000026,z@cardiff.ac.uk,Welsh language,2,L-BA-W
+2000001,a1@cardiff.ac.uk,English Language,3,L-BSc-E
+2000004,d@cardiff.ac.uk,English Language,3,H-LLB-E
+2000005,e@cardiff.ac.uk,English Language,3,M-BA-E
+2000007,g@cardiff.ac.uk,English Language,4,L-BSc-E
+2000008,h@cardiff.ac.uk,English Language,4,M-BSc-E
+2000009,i@cardiff.ac.uk,English Language,4,L-BSc-E
+2000010,j@cardiff.ac.uk,English Language,4,M-BA-E
+2000011,k@cardiff.ac.uk,English Language,5,L-o-E
+2000012,l@cardiff.ac.uk,English Language,5,H-BEng-E
+2000013,m@cardiff.ac.uk,English Language,5,L-LLB-E
+2000014,n@cardiff.ac.uk,English Language,5,L-BA-E
+2000015,o@cardiff.ac.uk,English Language,6,L-o-E
+2000016,p@cardiff.ac.uk,English Language,6,L-o-E
+2000017,q@cardiff.ac.uk,English Language,6,M-BSc-E
+2000019,s@cardiff.ac.uk,English Language,6,H-o-E
+2000021,v@cardiff.ac.uk,English Language,7,H-BSc-E
+2000022,u@cardiff.ac.uk,English Language,7,L-o-E
+2000023,w@cardiff.ac.uk,English Language,7,L-BSc-E
+2000024,x@cardiff.ac.uk,English Language,7,H-BEng-E

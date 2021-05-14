@@ -1,8 +1,27 @@
-Student Number,Student Email,Program Skills,Degree,Lang. Pref,Extra Information1332523,a@cardiff.ac.uk,High - familiar with more than one language,BEng,English,I'm really rubbish at it1234567,andrew@cardiff.ac.uk,High - familiar with more than one language,other,English,I am cool6666666,brennan@cardiff.ac.uk,Low - no or very little,BEng,English,1234234,iamco@cardiff.ac.uk,Medium - some experience,BEng,Welsh,4536453,man@cardiff.ac.uk,Medium - some experience,BA,Welsh,
-4545456,person@cardiff.ac.uk,Low - no or very little,BEng,English,
-4534545,46@cardiff.ac.uk,High - familiar with more than one language,BSc,Welsh,
-2102394,me@cardiff.ac.uk,High - familiar with more than one language,BSc,English,
-5455611,12missafew@cardiff.ac.uk,High - familiar with more than one language,LLB,Welsh,
-1111111,1@cardiff.ac.uk,High - familiar with more than one language,BEng,English,additional information
-2222222,cardiffstudent@cardiff.ac.uk,Low - no or very little,BEng,English,very little prior knowledge of programming
-2102394,koro@cardiff.ac.uk,High - familiar with more than one language,BSc,English,some c# knowledge
+Student Number,Student Email,Program Skills,Degree,Lang. Pref,Extra Information
+2000001,a1@cardiff.ac.uk,Low - no or very little,BSc,English,L-BSc-E
+2000002,b@cardiff.ac.uk,High - familiar with more than one language,BEng,Welsh,H-BEng-W
+2000003,c@cardiff.ac.uk,Medium - some experience,other,Welsh,M-o-W
+2000004,d@cardiff.ac.uk,High - familiar with more than one language,LLB,English,H-LLB-E
+2000005,e@cardiff.ac.uk,Medium - some experience,BA,English,M-BA-E
+2000006,f@cardiff.ac.uk,Low - no or very little,BA,Welsh,L-BA-W
+2000007,g@cardiff.ac.uk,Low - no or very little,BSc,English,L-BSc-E
+2000008,h@cardiff.ac.uk,Medium - some experience,BSc,English,M-BSc-E
+2000009,i@cardiff.ac.uk,Low - no or very little,BSc,English,L-BSc-E
+2000010,j@cardiff.ac.uk,Medium - some experience,BA,English,M-BA-E
+2000011,k@cardiff.ac.uk,Low - no or very little,other,English,L-o-E
+2000012,l@cardiff.ac.uk,High - familiar with more than one language,BEng,English,H-BEng-E
+2000013,m@cardiff.ac.uk,Low - no or very little,LLB,English,L-LLB-E
+2000014,n@cardiff.ac.uk,Low - no or very little,BA,English,L-BA-E
+2000015,o@cardiff.ac.uk,Low - no or very little,other,English,L-o-E
+2000016,p@cardiff.ac.uk,Low - no or very little,other,English,L-o-E
+2000017,q@cardiff.ac.uk,Medium - some experience,BSc,English,M-BSc-E
+2000018,r@cardiff.ac.uk,Medium - some experience,BSc,Welsh,M-BSc-W
+2000019,s@cardiff.ac.uk,High - familiar with more than one language,other,English,H-o-E
+2000020,t@cardiff.ac.uk,Medium - some experience,BSc,Welsh,M-BSc-W
+2000021,v@cardiff.ac.uk,High - familiar with more than one language,BSc,English,H-BSc-E
+2000022,u@cardiff.ac.uk,Low - no or very little,other,English,L-o-E
+2000023,w@cardiff.ac.uk,Low - no or very little,BSc,English,L-BSc-E
+2000024,x@cardiff.ac.uk,High - familiar with more than one language,BEng,English,H-BEng-E
+2000025,y@cardiff.ac.uk,Medium - some experience,BEng,Welsh,M-BEng-W
+2000026,z@cardiff.ac.uk,Low - no or very little,BA,Welsh,L-BA-W
